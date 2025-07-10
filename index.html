@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="images/weather-icon.png" alt="Weather App Logo" >
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active"><i class="fas fa-home"></i> Home</a>
+                <a href="https://mausam.imd.gov.in/" class="nav-item"><i class="fas fa-blog"></i> Blogs</a>
+                <a href="https://www.where-am-i.co/#google_vignette" class="nav-item"><i class="fas fa-map-marker-alt"></i> Map</a>
+                <a href="https://www.aqi.in/" class="nav-item"><i class="fas fa-leaf"></i> Air Quality</a>
+                <a href="https://zoom.earth/maps/humidity/#view=23.8,77.3,4.9z/model=icon" class="nav-item"><i class="fas fa-water"></i> Humidity</a>
+                <a href="https://zoom.earth/maps/wind-speed/#view=23.8,77.3,4.9z/model=icon" class="nav-item"><i class="fas fa-wind"></i> Wind Speed</a>
+            </nav>
+            <div class="logout">
+                <a href="#" class="nav-item"><i class="fas fa-sign-out-alt"></i> Log out</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="current-location">Dehradun, IN</span>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search here" id="search-input">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="top-nav-icons">
+                    <button class="icon-btn"><i class="far fa-calendar"></i></button>
+                    <button class="icon-btn"><i class="far fa-bell"></i></button>
+                </div>
+                <!-- Add this HTML code just before the closing </div> of the top-nav div -->
+<div class="calendar-popup" id="calendar-popup">
+    <div class="calendar-header">
+        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+        <h3 id="calendar-month">March 2025</h3>
+        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="weekdays">
+        <div>Su</div>
+        <div>Mo</div>
+        <div>Tu</div>
+        <div>We</div>
+        <div>Th</div>
+        <div>Fr</div>
+        <div>Sa</div>
+    </div>
+    <div class="calendar-days" id="calendar-days">
+        <!-- Days will be generated with JavaScript -->
+    </div>
+</div>
+            </div>
+
+            <!-- Weather Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Current Weather -->
+                <div class="current-weather">
+                    <div class="weather-icon-large">
+                        <img src="images/clear.png" alt="Clear Sky" id="main-weather-icon">
+                    </div>
+                    <div class="weather-details">
+                        <h1 id="current-location-inner">Dehradun, IN</h1>
+                        <p id="current-condition">Clear Sky</p>
+                    </div>
+                    <div class="temperature">
+                        <h1 id="current-temp">16°</h1>
+                    </div>
+                </div>
+
+                <!-- Forecast Cards -->
+                <div class="forecast-cards">
+                    <div class="forecast-card">
+                        <h3>Sunday</h3>
+                        <p>Sun</p>
+                        <img src="images/clear.png" alt="Sunny">
+                        <h2>14°</h2>
+                    </div>
+                    <div class="forecast-card">
+                        <h3>Sunday</h3>
+                        <p>Sun</p>
+                        <img src="images/clear.png" alt="Sunny">
+                        <h2>14°</h2>
+                    </div>
+                    <div class="forecast-card">
+                        <h3>Sunday</h3>
+                        <p>Sun</p>
+                        <img src="images/clear.png" alt="Sunny">
+                        <h2>14°</h2>
+                    </div>
+                    <div class="forecast-card">
+                        <h3>Sunday</h3>
+                        <p>Sun</p>
+                        <img src="images/clear.png" alt="Sunny">
+                        <h2>14°</h2>
+                    </div>
+                    
+                    <div class="forecast-card">
+                        <h3>Saturday</h3>
+                        <p>Cloudy</p>
+                        <img src="images/sun-cloud.png" alt="Cloudy">
+                        <h2>16°</h2>
+                    </div>
+                </div>
+
+                <!-- Today's Highlights -->
+                <div class="highlights-section">
+                    <h2>Today's Highlights</h2>
+                    <div class="highlights-grid">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <div class="highlight-details">
+                                <h3>Feels Like</h3>
+                                <p>Normal</p>
+                            </div>
+                            <div class="highlight-value">
+                                <h2>15°</h2>
+                            </div>
+                        </div>
+
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="highlight-details">
+                                <h3>Cloud</h3>
+                                <p>Heavy</p>
+                            </div>
+                            <div class="highlight-value">
+                                <h2>0<span>%</span></h2>
+                            </div>
+                        </div>
+
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="highlight-details">
+                                <h3>Rain</h3>
+                                <p>Normal</p>
+                            </div>
+                            <div class="highlight-value">
+                                <h2>0<span>mm</span></h2>
+                            </div>
+                        </div>
+
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="highlight-details">
+                                <h3>Humidity</h3>
+                                <p>Heavy</p>
+                            </div>
+                            <div class="highlight-value">
+                                <h2>35<span>%</span></h2>
+                            </div>
+                        </div>
+
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="highlight-details">
+                                <h3>UV Index</h3>
+                                <p>Heavy</p>
+                            </div>
+                            <div class="highlight-value">
+                                <h2>7</h2>
+                            </div>
+                        </div>
+
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="highlight-details">
+                                <h3>Wind</h3>
+                                <p>Normal</p>
+                            </div>
+                            <div class="highlight-value">
+                                <h2>3<span>km/h</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Cities Section -->
+            <div class="other-cities">
+                <h2>Other Cities</h2>
+                <div class="cities-list">
+                    <div class="city-card">
+                        <div class="city-info">
+                            <h3>Manchester</h3>
+                            <p>Cloudy, High: 11° Low: 8°</p>
+                        </div>
+                        <div class="city-icon">
+                            <img src="images/night-cloud.png" alt="Cloudy">
+                        </div>
+                        <div class="city-temp">
+                            <h2>7°</h2>
+                        </div>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-info">
+                            <h3>Edinburgh</h3>
+                            <p>Rain, High: 8° Low: 4°</p>
+                        </div>
+                        <div class="city-icon">
+                            <img src="images/rain.png" alt="Rain">
+                        </div>
+                        <div class="city-temp">
+                            <h2>6°</h2>
+                        </div>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-info">
+                            <h3>Bristol</h3>
+                            <p>Snow, High: 2° Low: -3°</p>
+                        </div>
+                        <div class="city-icon">
+                            <img src="images/snow.png" alt="Snow">
+                        </div>
+                        <div class="city-temp">
+                            <h2>0°</h2>
+                        </div>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-info">
+                            <h3>York</h3>
+                            <p>Cloudy, High: 10° Low: 6°</p>
+                        </div>
+                        <div class="city-icon">
+                            <img src="images/night-cloud.png" alt="Cloudy">
+                        </div>
+                        <div class="city-temp">
+                            <h2>8°</h2>
+                        </div>
+                    </div>
+
+                    <div class="see-more">
+                        <a href="https://www.accuweather.com/en/in/dehradun/191339/weather-forecast/191339">
+                            <button>See More <i class="fas fa-arrow-right"></i></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
